@@ -8,7 +8,7 @@ namespace Mission2Assignment
         {
             Random r = new Random();
 
-            Console.WriteLine("Welcome to the dice throwing simulator!");
+            Console.WriteLine("Welcome to the dice throwing simulator!\n");
             Console.WriteLine("How many dice rolls would you like to simulate? ");
             // get the number of rolls
             int intRolls = Convert.ToInt32(Console.ReadLine());
@@ -70,27 +70,26 @@ namespace Mission2Assignment
             } // end for loop that rolls totals
 
             // print results
-            Console.WriteLine("DICE ROLLING SIMULATION RESULTS");
+            Console.WriteLine("\nDICE ROLLING SIMULATION RESULTS");
             Console.WriteLine("Each '*' represents 1% of the total number of rolls.");
-            Console.WriteLine("Total number of rolls = " + intRolls);
-            // this is here to test and see if it is tracking the counts correctly
-            Console.WriteLine(aCount[0] + ", " + aCount[1] + ", " + aCount[2] + ", " + aCount[3]);
-
+            Console.WriteLine("Total number of rolls = " + intRolls + "\n");
+            
             // loop through the length of the count array to find each total asterisks
             for (int i = 0; i < aCount.Length; i++)
-            {
-                double cntAsterisks = (aCount[i] / intRolls)*100;
+            { 
+                int count = aCount[i] * 100;
+                double cntAsterisks = (count / intRolls);
                 Math.Round(cntAsterisks);
-                Console.WriteLine(((aCount[i])+2) + ": ");
+                Console.Write((i+2)  + ": ");
 
                 // i am trying to continually concat on an asterisk for the value in the aCount[i]
                 for (int ii = 0; ii < cntAsterisks; ii++)
                 {
-                    Console.WriteLine("*");
+                    Console.Write("*");
                 }
-                //Console.WriteLine("\n");
+                Console.Write("\n");
             }
-            Console.WriteLine("Thank you for using the dice throwing simulator. Goodbye!");
+            Console.WriteLine("\nThank you for using the dice throwing simulator. Goodbye!\n");
         }
     }
 }
